@@ -1,0 +1,173 @@
+/* =========================================================
+   Layout
+   ========================================================= */
+
+.container {
+  width: min(calc(100% - 40px), var(--container-width));
+  margin-inline: auto;
+}
+
+.page {
+  min-height: calc(100vh - var(--header-height));
+}
+
+.section {
+  padding: var(--space-9) 0;
+}
+
+.section--compact {
+  padding: var(--space-7) 0;
+}
+
+.section-header {
+  max-width: 720px;
+  margin-bottom: var(--space-7);
+}
+
+.section-header__eyebrow {
+  margin-bottom: var(--space-2);
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-header__title {
+  margin-bottom: var(--space-4);
+  color: var(--color-primary);
+  font-size: var(--text-3xl);
+}
+
+.section-header__text {
+  margin: 0;
+  color: var(--color-text-light);
+  font-size: var(--text-lg);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(27, 40, 51, 0.8) 0%,
+      rgba(27, 40, 51, 0.5) 30%,
+      rgba(27, 40, 51, 0) 100%
+    ),
+    url("https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/YNWSYkMn5Yi1NOW7/dsc03825-ALa1dj3URjTEUgBI.jpg")
+      center / cover no-repeat;
+  color: var(--color-white);
+}
+
+.hero__content {
+  max-width: 700px;
+}
+
+.hero__eyebrow {
+  margin-bottom: var(--space-3);
+  color: #d9bc8c;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  margin-bottom: var(--space-5);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+}
+
+.hero__text {
+  max-width: 620px;
+  margin-bottom: var(--space-6);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--text-lg);
+}
+
+/* ---------- Two columns ---------- */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  align-items: center;
+}
+
+/* ---------- Cards grid ---------- */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+/* ---------- Contact ---------- */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: var(--space-8);
+}
+
+/* ---------- Footer ---------- */
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: var(--space-7);
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .grid-2,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(calc(100% - 28px), var(--container-width));
+  }
+  .section {
+    padding: var(--space-8) 0;
+  }
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    min-height: 540px;
+  }
+}

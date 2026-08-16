@@ -1,0 +1,472 @@
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        /* =====================================================
+   TOKENS (los mismos de tu sistema de diseño)
+   ===================================================== */
+
+        :root {
+            --color-primary: #18232d;
+            --color-primary-dark: #101920;
+            --color-primary-light: #2c3a47;
+            --color-accent: #b89a68;
+            --color-accent-dark: #967b4f;
+            --color-accent-light: #d1bc96;
+            --color-white: #faf9f6;
+            --color-black: #111416;
+            --color-background: #f4f3f0;
+            --color-surface: #ffffff;
+            --color-surface-dark: #e8e6e1;
+            --color-text: #30363a;
+            --color-text-light: #687077;
+            --color-text-muted: #92989c;
+            --color-border: #dcddd9;
+            --color-success: #4f765f;
+            --color-error: #a34e48;
+            --font-primary: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-heading: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-md: 1rem;
+            --text-lg: 1.125rem;
+            --space-1: .25rem;
+            --space-2: .5rem;
+            --space-3: .75rem;
+            --space-4: 1rem;
+            --space-5: 1.5rem;
+            --space-6: 2rem;
+            --space-7: 3rem;
+            --space-8: 4rem;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 14px;
+            --transition-fast: 160ms cubic-bezier(.22, 1, .36, 1);
+            --transition-normal: 280ms cubic-bezier(.22, 1, .36, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-primary);
+            background: var(--color-background);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 var(--space-5);
+        }
+
+        .spacer {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-muted);
+            font-size: var(--text-sm);
+            padding: var(--space-8);
+            text-align: center;
+        }
+
+        /* =====================================================
+   FOOTER
+   ===================================================== */
+
+        .site-footer {
+            position: relative;
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding-top: var(--space-8);
+            overflow: hidden;
+        }
+
+        /* franja decorativa superior */
+
+        .site-footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 0px;
+            background: linear-gradient(90deg, var(--color-accent-dark), var(--color-accent-light), var(--color-accent-dark));
+            background-size: 200% 100%;
+            animation: shimmer 6s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .site-footer::before {
+                animation: none;
+            }
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: var(--space-7);
+            padding-bottom: var(--space-7);
+            border-bottom: 1px solid rgba(250, 249, 246, .12);
+        }
+
+        .site-footer__title {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            margin: 0 0 var(--space-4);
+            color: var(--color-white);
+            position: relative;
+            padding-bottom: var(--space-2);
+        }
+
+        .site-footer__title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 28px;
+            height: 2px;
+            background: var(--color-accent);
+        }
+
+        .site-footer__text {
+            font-size: var(--text-sm);
+            line-height: 1.7;
+            color: rgba(250, 249, 246, .65);
+            margin: 0;
+            max-width: 38ch;
+        }
+
+        .site-footer__links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        /* --- filas de contacto con icono --- */
+
+        .footer-row {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            color: rgba(250, 249, 246, .8);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            text-align: left;
+            font-family: inherit;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-row:hover {
+            color: var(--color-accent-light);
+        }
+
+        .icon-badge {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(250, 249, 246, .08);
+            border: 1px solid rgba(250, 249, 246, .14);
+            color: var(--color-accent-light);
+            transition: background var(--transition-normal), border-color var(--transition-normal), transform var(--transition-normal), color var(--transition-normal);
+        }
+
+        .icon-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .footer-row:hover .icon-badge,
+        .social-link:hover .icon-badge {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-primary-dark);
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        /* botón copiar email: feedback visual */
+
+        .copy-feedback {
+            font-size: var(--text-xs);
+            color: var(--color-accent-light);
+            opacity: 0;
+            transform: translateX(-4px);
+            transition: opacity var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .copy-feedback.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* --- redes sociales --- */
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            text-decoration: none;
+            color: rgba(250, 249, 246, .8);
+            font-size: var(--text-sm);
+            transition: color var(--transition-fast);
+        }
+
+        .social-link:hover {
+            color: var(--color-accent-light);
+        }
+
+        /* --- bottom bar --- */
+
+        .site-footer__bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: var(--text-xs);
+            color: rgba(250, 249, 246, .5);
+        }
+
+        /* --- botón volver arriba --- */
+
+        .to-top {
+            position: fixed;
+            right: var(--space-5);
+            bottom: var(--space-5);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--color-accent);
+            color: var(--color-primary-dark);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(12px);
+            transition: opacity var(--transition-normal), transform var(--transition-normal), background var(--transition-fast);
+        }
+
+        .to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .to-top:hover {
+            background: var(--color-accent-dark);
+        }
+
+        .to-top svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: var(--text-xs);
+            color: rgba(250, 249, 246, .5);
+        }
+
+        @media (max-width: 780px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-6);
+            }
+
+            .site-footer__bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Company -->
+                <div>
+                    <h2 class="site-footer__title">ASM Painting LLC</h2>
+                    <p class="site-footer__text">
+                        Professional painting and finishing services focused on quality workmanship, attention to
+                        detail, and dependable service.
+                    </p>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h2 class="site-footer__title">Contact</h2>
+                    <div class="site-footer__links">
+
+                        <button class="footer-row site-footer__link" id="email-btn" type="button">
+                            <span class="icon-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="M22 6 12 13 2 6" />
+                                </svg>
+                            </span>
+                            <span>
+                                info@asmpaintingllc.com
+                                <span class="copy-feedback" id="copy-feedback">· copiado ✓</span>
+                            </span>
+                        </button>
+
+                        <a class="footer-row site-footer__link" href="https://wa.me/15551234567" target="_blank"
+                            rel="noopener">
+                            <span class="icon-badge">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.5-.3z" />
+                                    <path
+                                        d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .9.9-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z" />
+                                </svg>
+                            </span>
+                            <span>(555) 123-4567 · WhatsApp</span>
+                        </a>
+
+                        <a class="footer-row site-footer__link" href="https://www.google.com/maps?q=Your+City,USA"
+                            target="_blank" rel="noopener">
+                            <span class="icon-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </span>
+                            <span>Your City, USA</span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <h2 class="site-footer__title">Follow Us</h2>
+                    <div class="site-footer__links">
+
+                        <a class="social-link site-footer__link" href="#" target="_blank" rel="noopener">
+                            <span class="icon-badge">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.3-1.5 1.6-1.5H17V3.3C16.6 3.2 15.6 3 14.4 3c-2.4 0-4 1.5-4 4.1v2.7H7.7V13H10.4v8h3.1Z" />
+                                </svg>
+                            </span>
+                            <span>Facebook</span>
+                        </a>
+
+                        <a class="social-link site-footer__link" href="#" target="_blank" rel="noopener">
+                            <span class="icon-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                                    <circle cx="12" cy="12" r="4" />
+                                    <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+                                </svg>
+                            </span>
+                            <span>Instagram</span>
+                        </a>
+
+                        <a class="social-link site-footer__link" href="#" target="_blank" rel="noopener">
+                            <span class="icon-badge">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M21.8 12.2c0-.7-.1-1.4-.2-2H12v3.9h5.6a4.8 4.8 0 0 1-2.1 3.1v2.6h3.4c2-1.8 3.1-4.6 3.1-7.6Z" />
+                                    <path
+                                        d="M12 22c2.8 0 5.2-.9 6.9-2.5l-3.4-2.6c-.9.6-2.1 1-3.5 1-2.7 0-5-1.8-5.8-4.3H2.7v2.7A10 10 0 0 0 12 22Z" />
+                                    <path d="M6.2 13.6a6 6 0 0 1 0-3.8V7.1H2.7a10 10 0 0 0 0 9l3.5-2.5Z" />
+                                    <path
+                                        d="M12 6.1c1.5 0 2.9.5 4 1.5l3-3A10 10 0 0 0 2.7 7.1l3.5 2.7C7 7.4 9.3 6.1 12 6.1Z" />
+                                </svg>
+                            </span>
+                            <span>Google Business</span>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bottom">
+                <span>© <span id="current-year"></span> ASM Painting LLC. All rights reserved.</span>
+                <span>Professional Painting &amp; Finishing Services</span>
+            </div>
+        </div>
+    </footer>
+
+    <button class="to-top" id="to-top" aria-label="Volver arriba" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 19V5" />
+            <path d="m5 12 7-7 7 7" />
+        </svg>
+    </button>
+
+    <script>
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+
+        // Copiar email al portapapeles
+        const emailBtn = document.getElementById("email-btn");
+        const feedback = document.getElementById("copy-feedback");
+        emailBtn.addEventListener("click", async () => {
+            try {
+                await navigator.clipboard.writeText("info@asmpaintingllc.com");
+            } catch (e) {
+                // clipboard no disponible: no bloquea la interacción
+            }
+            feedback.classList.add("show");
+            clearTimeout(emailBtn._t);
+            emailBtn._t = setTimeout(() => feedback.classList.remove("show"), 1800);
+        });
+
+        // Botón volver arriba
+        const toTop = document.getElementById("to-top");
+        window.addEventListener("scroll", () => {
+            toTop.classList.toggle("visible", window.scrollY > 300);
+        });
+        toTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+
+</body>
+
+</html>

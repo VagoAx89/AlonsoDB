@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="View selected projects and work completed by ASM Painting LLC.">
+
+    <title>Gallery | ASM Painting LLC</title>
+
+    <link rel="stylesheet" href="styles/main.css">
+
+</head>
+
+
+<body data-page="gallery">
+
+    <div id="site-header"></div>
+
+
+    <main class="page">
+
+        <section class="section reveal">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-header__eyebrow">
+                        Our Work
+                    </div>
+
+                    <h1 class="section-header__title">
+                        Gallery
+                    </h1>
+
+                    <p class="section-header__text">
+                        A selection of projects and work completed by ASM Painting LLC.
+                    </p>
+
+                </div>
+
+
+                <!-- JS will populate this automatically -->
+
+                <div id="gallery-grid" class="gallery-grid" aria-live="polite">
+
+                    <p class="text-muted">
+                        Loading gallery...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Lightbox -->
+
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+
+        <button id="lightbox-close" class="lightbox__close" type="button" aria-label="Close image">
+            ×
+        </button>
+
+        <img id="lightbox-image" src="" alt="">
+
+    </div>
+
+
+    <div id="site-footer"></div>
+
+
+    <script src="js/app.js" defer></script>
+
+</body>
+
+</html>
