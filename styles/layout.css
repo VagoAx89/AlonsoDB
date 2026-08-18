@@ -48,24 +48,54 @@
 /* ---------- Hero ---------- */
 
 .hero {
+  position: relative;
   min-height: 700px;
   display: flex;
   align-items: center;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(27, 40, 51, 0.8) 0%,
-      rgba(27, 40, 51, 0.5) 30%,
-      rgba(27, 40, 51, 0) 100%
-    ),
-    url("https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1920,fit=crop/YNWSYkMn5Yi1NOW7/dsc03825-ALa1dj3URjTEUgBI.jpg")
-      center / cover no-repeat;
+  overflow: hidden;
   color: var(--color-white);
 }
 
-.hero__content {
-  max-width: 700px;
+/* Video de fondo */
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
+
+/* Degradado sobre el video */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(27, 40, 51, 0.8) 0%,
+    rgba(27, 40, 51, 0.5) 30%,
+    rgba(27, 40, 51, 0) 100%
+  );
+}
+
+/* Contenido encima del video */
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+/* .hero__content {
+  max-width: 700px;
+} */
 
 .hero__eyebrow {
   margin-bottom: var(--space-3);
