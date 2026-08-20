@@ -369,7 +369,7 @@ async function initializeGallery() {
 
             item.appendChild(image);
 
-            item.appendChild(caption);
+            //item.appendChild(caption);
 
             gallery.appendChild(item);
 
