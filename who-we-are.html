@@ -2,260 +2,299 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description"
         content="Learn more about ASM Painting LLC, our approach, values and commitment to quality.">
-
     <title>Who We Are | ASM Painting LLC</title>
-
     <link rel="stylesheet" href="styles/main.css">
 
-</head>
+    <!-- Estilos embebidos específicos para la sección del fundador y quotes -->
+    <!-- Estilos embebidos específicos para la sección del fundador y quotes -->
+    <style>
+        .founder-spotlight {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border-left: 5px solid #0056b3;
+            /* Puedes ajustar este color al primario de tu marca */
+        }
 
+        @media (min-width: 768px) {
+            .founder-spotlight {
+                grid-template-columns: 320px 1fr;
+            }
+        }
+
+        .founder-card {
+            text-align: center;
+            /* Agregamos una transición suave al contenedor */
+            transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Contenedor que recorta la imagen para evitar desbordamiento en el zoom */
+
+        .founder-card__img-wrapper {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            transition: box-shadow 0.35s ease, transform 0.35s ease;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .founder-card__image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+            /* Transición fluida para la animación */
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.35s ease;
+        }
+
+        /* EFECTO HOVER: Eleva la tarjeta y amplía la foto */
+
+        .founder-card:hover .founder-card__img-wrapper {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.22);
+            transform: translateY(-4px);
+        }
+
+        .founder-card:hover .founder-card__image {
+            transform: scale(1.06);
+            filter: brightness(1.03);
+        }
+
+        .founder-card__name {
+            margin-top: 1rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #222;
+        }
+
+        .founder-card__role {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .founder-quote {
+            position: relative;
+        }
+
+        .founder-quote blockquote {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            font-style: italic;
+            color: #333;
+            margin: 0 0 1rem 0;
+            position: relative;
+        }
+
+        .founder-quote blockquote::before {
+            content: "“";
+            font-size: 4rem;
+            color: rgba(0, 0, 0, 0.15);
+            position: absolute;
+            top: -1.5rem;
+            left: -1.5rem;
+            font-family: Georgia, serif;
+        }
+
+        .text-lead {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.6;
+            color: #111;
+        }
+    </style>
+</head>
 
 <body data-page="about">
 
     <div id="site-header"></div>
 
+    <main class="page">
 
-    <main class="page ">
-
-        <!-- Page heading -->
-
+        <!-- Page Heading & Overview -->
         <section class="section reveal">
-
             <div class="container">
-
                 <div class="section-header">
-
                     <div class="section-header__eyebrow">
-                        About ASM Painting
+                        About ASM Painting LLC
                     </div>
-
                     <h1 class="section-header__title">
                         Who We Are
                     </h1>
-
-                    <p class="section-header__text">
-                        ASM Painting LLC delivers professional painting and finishing services built on craftsmanship,
-                        reliability, integrity and a commitment to exceeding customer expectations.
+                    <p class="section-header__text text-lead">
+                        TIME IS OF THE ESSENCE. QUALITY IS EVERYTHING.
                     </p>
-
+                    <p class="section-header__text">
+                        Since 2006, ASM Painting LLC has built its reputation on quality craftsmanship, reliable
+                        service, careful planning, and open communication. We understand that time is valuable,
+                        especially for businesses operating on tight schedules. That’s why we work
+                        closely with every client to develop efficient project plans that minimize disruptions while
+                        maintaining the highest standards of quality and professionalism.
+                    </p>
                 </div>
 
-
-                <div class="grid-2">
-
-                    <div class="image-frame">
-
-                        <img src="https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/gallery/Fundacion.jpg"
-                            alt="ASM Painting project" loading="lazy">
-
-                    </div>
-
-
-                    <div>
-
-                        <h2>
-                            More than a coat of paint.
-                        </h2>
-
-                        <p>
-                            ASM Painting LLC was created with a simple philosophy: good work starts with taking the time
-                            to do things correctly.
-                        </p>
-
-                        <p>
-                            Every project begins with understanding what the customer needs, preparing the surfaces
-                            properly and selecting the right materials for the job.
-                        </p>
-
-                        <p>
-                            Our team believes that professionalism is found in the small details — protecting
-                            surrounding areas, keeping the workspace organized and leaving every project clean when the
-                            work is complete.
-                        </p>
-
-                    </div>
-
+                <div class="image-fundacion">
+                    <img src="https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/gallery/Fundacion.jpg"
+                        alt="ASM Painting team project" loading="lazy">
                 </div>
-
             </div>
-
         </section>
 
-        <!-- Mission Vision Values -->
-
+        <!-- Family Commitment & Founder Spotlight -->
         <section class="section reveal">
-
             <div class="container">
-
                 <div class="section-header">
-
                     <div class="section-header__eyebrow">
-                        Mission • Vision • Values
+                        Our Story
                     </div>
-
                     <h2 class="section-header__title">
-                        The principles behind our work
+                        A Family Commitment to Excellence
                     </h2>
-
                     <p class="section-header__text">
-                        Every project we complete is guided by a commitment to quality workmanship, professionalism and
-                        customer satisfaction.
+                        ASM Painting LLC is more than a painting company. It’s a family business built on hard work,
+                        integrity, and pride in every project we complete. Founded by Alonso, the company continues to
+                        grow with the support of his sons, Luis and Alex, who share the
+                        same commitment to quality workmanship and exceptional customer service.
                     </p>
+                    <p class="section-header__text">
+                        You’ll often find our team actively involved in projects, visiting job sites, communicating with
+                        clients, and ensuring every detail meets our standards. Being hands-on allows us to maintain the
+                        level of quality and accountability our clients have come
+                        to expect.
+                    </p>
+                </div>
 
+                <!-- Spotlight con la foto de Alonso y su frase célebre -->
+                <div class="founder-spotlight">
+                    <div class="founder-card">
+                        <div class="founder-card__img-wrapper">
+                            <img src="https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/gallery/Alonso.jpg"
+                                alt="Alonso - Founder of ASM Painting LLC" class="founder-card__image" loading="lazy">
+                        </div>
+                        <div class="founder-card__name">Alonso</div>
+                        <div class="founder-card__role">Founder</div>
+                    </div>
+                    <div class="founder-quote">
+                        <blockquote>
+                            “When our work is complete, we want every client and every guest who walks through those
+                            doors to experience the quality and care that went into every detail.”
+                        </blockquote>
+                        <p class="section-header__text" style="margin-bottom: 0;">
+                            At ASM Painting LLC, we don’t just paint buildings. We help bring our clients’ vision to
+                            life while building relationships that last for years to come.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Sets Us Apart -->
+        <section class="section reveal">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-header__eyebrow">
+                        Why Choose Us
+                    </div>
+                    <h2 class="section-header__title">
+                        What Sets ASM Painting LLC Apart?
+                    </h2>
+                    <p class="section-header__text">
+                        What makes ASM Painting LLC different is our dedication to creating spaces that leave a lasting
+                        impression. Whether it’s a commercial property, office, restaurant, or residential project, we
+                        approach every job with the same attention to detail and commitment
+                        to excellence.
+                    </p>
                 </div>
 
                 <div class="grid-3">
+                    <article class="card">
+                        <div class="card__icon">A</div>
+                        <h3 class="card__title">Attention to Detail</h3>
+                        <p class="card__text">
+                            Preparation and finishing are treated as equally important parts of every project to ensure
+                            flawless execution.
+                        </p>
+                    </article>
 
                     <article class="card">
+                        <div class="card__icon">Q</div>
+                        <h3 class="card__title">Quality & Materials</h3>
+                        <p class="card__text">
+                            We select the right materials for the job to deliver results that look professional and
+                            stand up to everyday use.
+                        </p>
+                    </article>
 
-                        <div class="card__icon">
-                            M
-                        </div>
+                    <article class="card">
+                        <div class="card__icon">T</div>
+                        <h3 class="card__title">Trust & Respect</h3>
+                        <p class="card__text">
+                            Clear communication, dependable service, and maximum respect for the customer's property and
+                            timeline.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                        <h3 class="card__title">
-                            Mission
-                        </h3>
+        <!-- Mission Vision Values -->
+        <section class="section reveal">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-header__eyebrow">
+                        Mission • Vision • Values
+                    </div>
+                    <h2 class="section-header__title">
+                        The principles behind our work
+                    </h2>
+                </div>
 
+                <div class="grid-3">
+                    <article class="card">
+                        <div class="card__icon">M</div>
+                        <h3 class="card__title">Mission</h3>
                         <p class="card__text">
                             To provide exceptional painting and finishing services through skilled craftsmanship,
                             professionalism and a commitment to customer satisfaction.
                         </p>
-
                     </article>
 
                     <article class="card">
-
-                        <div class="card__icon">
-                            V
-                        </div>
-
-                        <h3 class="card__title">
-                            Vision
-                        </h3>
-
+                        <div class="card__icon">V</div>
+                        <h3 class="card__title">Vision</h3>
                         <p class="card__text">
                             To be the trusted painting partner for residential and commercial clients, delivering
                             quality workmanship and lasting impressions on every project.
                         </p>
-
                     </article>
 
                     <article class="card">
-
-                        <div class="card__icon">
-                            C
-                        </div>
-
-                        <h3 class="card__title">
-                            Core Values
-                        </h3>
-
+                        <div class="card__icon">C</div>
+                        <h3 class="card__title">Core Values</h3>
                         <p class="card__text">
                             Integrity, craftsmanship, accountability and respect guide everything we do. We believe in
                             honest communication, dependable service and attention to detail from start to finish.
                         </p>
-
                     </article>
-
                 </div>
-
             </div>
-
-        </section>
-
-
-        <!-- Values -->
-
-        <section class="section reveal">
-
-            <div class="container">
-
-                <div class="section-header">
-
-                    <div class="section-header__eyebrow">
-                        Our Approach
-                    </div>
-
-                    <h2 class="section-header__title">
-                        What matters to us
-                    </h2>
-
-                </div>
-
-
-                <div class="grid-3">
-
-                    <article class="card">
-
-                        <div class="card__icon">
-                            A
-                        </div>
-
-                        <h3 class="card__title">
-                            Attention to Detail
-                        </h3>
-
-                        <p class="card__text">
-                            Preparation and finishing are treated as equally important parts of every project.
-                        </p>
-
-                    </article>
-
-
-                    <article class="card">
-
-                        <div class="card__icon">
-                            Q
-                        </div>
-
-                        <h3 class="card__title">
-                            Quality
-                        </h3>
-
-                        <p class="card__text">
-                            We aim to deliver results that look professional and stand up to everyday use.
-                        </p>
-
-                    </article>
-
-
-                    <article class="card">
-
-                        <div class="card__icon">
-                            T
-                        </div>
-
-                        <h3 class="card__title">
-                            Trust
-                        </h3>
-
-                        <p class="card__text">
-                            Clear communication, dependable service and respect for the customer's property.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
         </section>
 
     </main>
 
-
     <div id="site-footer"></div>
 
-
     <script src="js/app.js" defer></script>
-
 </body>
 
 </html>
