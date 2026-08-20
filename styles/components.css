@@ -304,7 +304,22 @@
 /* =========================================================
    IMAGE FRAME
    ========================================================= */
+.image-fundation {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  /* Atributos de animación */
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
 
+.image-fundation:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
 .image-frame {
   overflow: hidden;
   border-radius: var(--radius-lg);
