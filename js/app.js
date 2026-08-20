@@ -370,8 +370,10 @@ async function initializeGallery() {
             item.appendChild(image);
 
             //item.appendChild(caption);
+            if (file.name != "Fundacion.jpg" && file.name != "Alonso.jpg") {
+                gallery.appendChild(item);
+            }
 
-            gallery.appendChild(item);
 
 
             /* Lightbox */
