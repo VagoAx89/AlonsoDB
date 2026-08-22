@@ -38,7 +38,7 @@ const CONFIG = {
 
     /* Contact */
 
-    contactEmail: "info@asmpaintingllc.com"
+    contactEmail: "alonso@asmpaintingllc.com"
 };
 
 
@@ -46,7 +46,7 @@ const CONFIG = {
    INITIALIZATION
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", async() => {
 
 
     await loadComponents();
@@ -332,7 +332,7 @@ async function initializeGallery() {
             const imageUrl =
                 CONFIG.galleryRawBase +
                 encodeURIComponent(file.name)
-                    .replace(/%2F/g, "/");
+                .replace(/%2F/g, "/");
 
 
             const item =
@@ -718,7 +718,7 @@ function initializeScrollReveal() {
 
         elements.forEach(
             element =>
-                element.classList.add("visible")
+            element.classList.add("visible")
         );
 
         return;
@@ -753,20 +753,20 @@ function initializeScrollReveal() {
                 });
 
             }, {
-            /*
-               Empieza la animación ligeramente antes
-               de que el elemento llegue al centro.
-            */
+                /*
+                   Empieza la animación ligeramente antes
+                   de que el elemento llegue al centro.
+                */
 
-            threshold: 0.12,
+                threshold: 0.12,
 
-            rootMargin: "0px 0px -40px 0px"
-        }
+                rootMargin: "0px 0px -40px 0px"
+            }
         );
 
 
     elements.forEach(
         element =>
-            observer.observe(element)
+        observer.observe(element)
     );
 }
