@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional commercial painting, drywall, coatings, wall covering and remodeling services by ASM Painting LLC.">
+    <meta name="description"
+        content="Professional commercial painting, drywall, coatings, wall covering and remodeling services by ASM Painting LLC.">
     <title>Commercial Services | ASM Painting LLC</title>
     <link rel="stylesheet" href="styles/main.css">
 
@@ -12,22 +13,22 @@
         /* =========================================================
            SERVICES PAGE
            ========================================================= */
-        
+
         .services-hero {
             position: relative;
             min-height: 520px;
             display: flex;
             align-items: center;
             overflow: hidden;
-            background: linear-gradient(90deg, rgba(27, 40, 51, 0.94) 0%, rgba(27, 40, 51, 0.78) 42%, rgba(27, 40, 51, 0.30) 100%), url("https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/gallery/services/commercial.jpg") center / cover no-repeat;
+            background: linear-gradient(90deg, rgba(27, 40, 51, 0.94) 0%, rgba(27, 40, 51, 0.78) 42%, rgba(27, 40, 51, 0.30) 100%), url("https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/gallery/CAM_20260502140111_0025_W.jpg") center / cover no-repeat;
             color: var(--color-white);
         }
-        
+
         .services-hero__content {
             max-width: 760px;
             padding: 5rem 0;
         }
-        
+
         .services-hero__eyebrow {
             display: inline-block;
             margin-bottom: 1rem;
@@ -37,39 +38,41 @@
             text-transform: uppercase;
             color: var(--color-accent-light);
         }
-        
+
         .services-hero__title {
             margin: 0 0 1.5rem;
             font-size: clamp(2.7rem, 6vw, 4.8rem);
             line-height: 1.05;
             font-weight: 800;
         }
-        
+
         .services-hero__text {
             max-width: 650px;
             font-size: 1.2rem;
             line-height: 1.7;
             color: rgba(250, 249, 246, 0.88);
         }
+
         /* =========================================================
            SERVICES INTRO
            ========================================================= */
-        
+
         .services-intro {
             max-width: 850px;
             margin: 0 auto 4rem;
             text-align: center;
         }
-        
+
         .services-intro__text {
             font-size: 1.1rem;
             line-height: 1.8;
             color: var(--color-text-light);
         }
+
         /* =========================================================
            SERVICE FEATURE
            ========================================================= */
-        
+
         .service-feature {
             display: grid;
             grid-template-columns: 1fr;
@@ -77,25 +80,27 @@
             align-items: center;
             margin: 4rem 0;
         }
-        
+
         @media (min-width: 900px) {
             .service-feature {
                 grid-template-columns: 1fr 1fr;
             }
+
             .service-feature--reverse .service-feature__image {
                 order: 2;
             }
+
             .service-feature--reverse .service-feature__content {
                 order: 1;
             }
         }
-        
+
         .service-feature__image {
             overflow: hidden;
             border-radius: 12px;
             box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
         }
-        
+
         .service-feature__image img {
             display: block;
             width: 100%;
@@ -103,12 +108,12 @@
             object-fit: cover;
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease;
         }
-        
+
         .service-feature__image:hover img {
             transform: scale(1.04);
             filter: brightness(1.03);
         }
-        
+
         .service-feature__eyebrow {
             margin-bottom: 0.75rem;
             font-size: 0.8rem;
@@ -117,36 +122,37 @@
             text-transform: uppercase;
             color: var(--color-accent-dark);
         }
-        
+
         .service-feature__title {
             margin: 0 0 1.2rem;
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.15;
             color: var(--color-primary);
         }
-        
+
         .service-feature__text {
             font-size: 1.05rem;
             line-height: 1.8;
             color: var(--color-text-light);
         }
+
         /* =========================================================
            SERVICE LIST
            ========================================================= */
-        
+
         .services-list {
             display: grid;
             grid-template-columns: 1fr;
             gap: 1rem;
             margin-top: 2rem;
         }
-        
+
         @media (min-width: 600px) {
             .services-list {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        
+
         .services-list__item {
             display: flex;
             align-items: center;
@@ -157,13 +163,13 @@
             background: var(--color-surface);
             transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
-        
+
         .services-list__item:hover {
             transform: translateY(-3px);
             border-color: var(--color-accent-light);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
         }
-        
+
         .services-list__icon {
             display: flex;
             align-items: center;
@@ -177,53 +183,54 @@
             font-size: 0.8rem;
             font-weight: 700;
         }
-        
+
         .services-list__item span:last-child {
             font-weight: 600;
             color: var(--color-text);
         }
+
         /* =========================================================
            BUILDING TYPES
            ========================================================= */
-        
+
         .building-section {
             margin-top: 5rem;
             padding: 5rem 0;
             background: var(--color-primary);
             color: var(--color-white);
         }
-        
+
         .building-section .section-header__eyebrow {
             color: var(--color-accent-light);
         }
-        
+
         .building-section .section-header__title {
             color: var(--color-white);
         }
-        
+
         .building-section .section-header__text {
             color: rgba(250, 249, 246, 0.78);
         }
-        
+
         .building-types {
             display: grid;
             grid-template-columns: 1fr;
             gap: 1rem;
             margin-top: 3rem;
         }
-        
+
         @media (min-width: 600px) {
             .building-types {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        
+
         @media (min-width: 1000px) {
             .building-types {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-        
+
         .building-type {
             position: relative;
             min-height: 150px;
@@ -236,12 +243,12 @@
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
             transition: transform 0.3s ease, background 0.3s ease;
         }
-        
+
         .building-type:hover {
             transform: translateY(-5px);
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.04));
         }
-        
+
         .building-type__number {
             position: absolute;
             top: 1rem;
@@ -250,17 +257,18 @@
             font-weight: 800;
             color: rgba(255, 255, 255, 0.08);
         }
-        
+
         .building-type__title {
             margin: 0;
             font-size: 1.15rem;
             font-weight: 700;
             color: var(--color-white);
         }
+
         /* =========================================================
            FINAL CTA
            ========================================================= */
-        
+
         .services-cta {
             margin-top: 5rem;
             padding: 4rem 2rem;
@@ -269,13 +277,13 @@
             background: linear-gradient(135deg, rgba(184, 154, 104, 0.13), rgba(184, 154, 104, 0.04));
             border: 1px solid var(--color-border);
         }
-        
+
         .services-cta__title {
             margin: 0 0 1rem;
             font-size: clamp(2rem, 4vw, 3rem);
             color: var(--color-primary);
         }
-        
+
         .services-cta__text {
             max-width: 700px;
             margin: 0 auto 2rem;
@@ -283,7 +291,7 @@
             line-height: 1.7;
             color: var(--color-text-light);
         }
-        
+
         .services-cta__button {
             display: inline-flex;
             align-items: center;
@@ -296,7 +304,7 @@
             font-weight: 700;
             transition: transform 0.25s ease, background 0.25s ease;
         }
-        
+
         .services-cta__button:hover {
             transform: translateY(-2px);
             background: var(--color-primary-light);
@@ -323,7 +331,8 @@
                         Our Commercial Services
                     </h1>
                     <p class="services-hero__text">
-                        Professional painting, drywall finishing, protective coatings, and specialized wall coverings designed to elevate commercial spaces with precision, efficiency, and lasting quality.
+                        Professional painting, drywall finishing, protective coatings, and specialized wall coverings
+                        designed to elevate commercial spaces with precision, efficiency, and lasting quality.
                     </p>
                 </div>
             </div>
@@ -343,7 +352,9 @@
                         Quality Work. Professional Results.
                     </h2>
                     <p class="services-intro__text">
-                        From surface preparation and drywall tape & float to specialized epoxy coatings and custom mural installations, ASM Painting LLC provides complete solutions tailored to commercial and industrial environments.
+                        From surface preparation and drywall tape & float to specialized epoxy coatings and custom mural
+                        installations, ASM Painting LLC provides complete solutions tailored to commercial and
+                        industrial environments.
                     </p>
                 </div>
 
@@ -352,7 +363,8 @@
                      ================================================== -->
                 <div class="service-feature">
                     <div class="service-feature__image">
-                        <img src="https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/gallery/services/drywall.jpg" alt="Professional drywall finishing and gypsum board work" loading="lazy">
+                        <img src="https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/gallery/02.jpg"
+                            alt="Professional drywall finishing and gypsum board work" loading="lazy">
                     </div>
                     <div class="service-feature__content">
                         <div class="service-feature__eyebrow">
@@ -362,7 +374,8 @@
                             Drywall & Gypsum Services
                         </h2>
                         <p class="service-feature__text">
-                            A flawless finish begins with proper structural surface prep. We handle everything from seamless tape and float to heavy-duty protective coatings.
+                            A flawless finish begins with proper structural surface prep. We handle everything from
+                            seamless tape and float to heavy-duty protective coatings.
                         </p>
                         <div class="services-list">
                             <div class="services-list__item">
@@ -386,7 +399,8 @@
                      ================================================== -->
                 <div class="service-feature service-feature--reverse">
                     <div class="service-feature__image">
-                        <img src="https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/gallery/services/painting.jpg" alt="Professional commercial interior and exterior painting" loading="lazy">
+                        <img src="https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/gallery/DSC03838.jpg"
+                            alt="Professional commercial interior and exterior painting" loading="lazy">
                     </div>
                     <div class="service-feature__content">
                         <div class="service-feature__eyebrow">
@@ -396,7 +410,8 @@
                             Interior & Exterior Painting
                         </h2>
                         <p class="service-feature__text">
-                            Long-lasting aesthetic upgrades executed with minimal downtime for your operations. We provide consistent coverage and thorough detail work.
+                            Long-lasting aesthetic upgrades executed with minimal downtime for your operations. We
+                            provide consistent coverage and thorough detail work.
                         </p>
                         <div class="services-list">
                             <div class="services-list__item">
@@ -424,7 +439,8 @@
                      ================================================== -->
                 <div class="service-feature">
                     <div class="service-feature__image">
-                        <img src="https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/gallery/services/wallcovering.jpg" alt="Professional vinyl wall covering installation" loading="lazy">
+                        <img src="https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/gallery/WhatsApp%20Image%202026-08-19%20at%2017.36s.46.jpeg"
+                            alt="Professional vinyl wall covering installation" loading="lazy">
                     </div>
                     <div class="service-feature__content">
                         <div class="service-feature__eyebrow">
@@ -434,7 +450,8 @@
                             Wall Coverings & Remodeling
                         </h2>
                         <p class="service-feature__text">
-                            Transform decorative walls and high-traffic interior zones with specialized vinyl materials, custom graphics, and full office refreshes.
+                            Transform decorative walls and high-traffic interior zones with specialized vinyl materials,
+                            custom graphics, and full office refreshes.
                         </p>
                         <div class="services-list">
                             <div class="services-list__item">
@@ -477,7 +494,8 @@
                         Building Types We Serve
                     </h2>
                     <p class="section-header__text">
-                        Our team understands the operational demands of commercial projects, strictly adhering to safety, timeline, and quality requirements across various facilities.
+                        Our team understands the operational demands of commercial projects, strictly adhering to
+                        safety, timeline, and quality requirements across various facilities.
                     </p>
                 </div>
 
@@ -516,7 +534,8 @@
                         Let's Talk About Your Project
                     </h2>
                     <p class="services-cta__text">
-                        Whether you are planning a commercial renovation, repainting project or a complete finishing package, ASM Painting LLC is ready to help bring your project to life.
+                        Whether you are planning a commercial renovation, repainting project or a complete finishing
+                        package, ASM Painting LLC is ready to help bring your project to life.
                     </p>
                     <a href="contact.html" class="services-cta__button">
                         Request a Quote
