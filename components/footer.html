@@ -5,8 +5,8 @@
         /* =====================================================
    TOKENS (los mismos de tu sistema de diseño)
    ===================================================== */
-        
-         :root {
+
+        :root {
             --color-primary: #18232d;
             --color-primary-dark: #101920;
             --color-primary-light: #2c3a47;
@@ -44,11 +44,11 @@
             --transition-fast: 160ms cubic-bezier(.22, 1, .36, 1);
             --transition-normal: 280ms cubic-bezier(.22, 1, .36, 1);
         }
-        
+
         * {
             box-sizing: border-box;
         }
-        
+
         body {
             margin: 0;
             font-family: var(--font-primary);
@@ -58,13 +58,13 @@
             flex-direction: column;
             justify-content: flex-end;
         }
-        
+
         .container {
             max-width: 1180px;
             margin: 0 auto;
             padding: 0 var(--space-5);
         }
-        
+
         .spacer {
             flex: 1;
             display: flex;
@@ -75,10 +75,11 @@
             padding: var(--space-8);
             text-align: center;
         }
+
         /* =====================================================
    FOOTER
    ===================================================== */
-        
+
         .site-footer {
             position: relative;
             background: var(--color-primary);
@@ -86,8 +87,9 @@
             padding-top: var(--space-8);
             overflow: hidden;
         }
+
         /* franja decorativa superior */
-        
+
         .site-footer::before {
             content: "";
             position: absolute;
@@ -99,33 +101,34 @@
             background-size: 200% 100%;
             animation: shimmer 6s linear infinite;
         }
-        
+
         .email-link {
             color: inherit;
             text-decoration: none;
             transition: opacity 0.2s ease;
         }
-        
+
         .email-link:hover {
             text-decoration: underline;
             opacity: 0.85;
         }
-        
+
         @keyframes shimmer {
             0% {
                 background-position: 0% 0;
             }
+
             100% {
                 background-position: 200% 0;
             }
         }
-        
+
         @media (prefers-reduced-motion: reduce) {
             .site-footer::before {
                 animation: none;
             }
         }
-        
+
         .footer-grid {
             display: grid;
             grid-template-columns: 1.3fr 1fr 1fr;
@@ -133,7 +136,7 @@
             padding-bottom: var(--space-7);
             border-bottom: 1px solid rgba(250, 249, 246, .12);
         }
-        
+
         .site-footer__title {
             font-family: var(--font-heading);
             font-size: var(--text-lg);
@@ -143,7 +146,7 @@
             position: relative;
             padding-bottom: var(--space-2);
         }
-        
+
         .site-footer__title::after {
             content: "";
             position: absolute;
@@ -153,7 +156,7 @@
             height: 2px;
             background: var(--color-accent);
         }
-        
+
         .site-footer__text {
             font-size: var(--text-sm);
             line-height: 1.7;
@@ -161,14 +164,15 @@
             margin: 0;
             max-width: 38ch;
         }
-        
+
         .site-footer__links {
             display: flex;
             flex-direction: column;
             gap: var(--space-3);
         }
+
         /* --- filas de contacto con icono --- */
-        
+
         .footer-row {
             display: flex;
             align-items: center;
@@ -184,11 +188,11 @@
             font-family: inherit;
             transition: color var(--transition-fast);
         }
-        
+
         .footer-row:hover {
             color: var(--color-accent-light);
         }
-        
+
         .icon-badge {
             flex-shrink: 0;
             width: 36px;
@@ -202,12 +206,12 @@
             color: var(--color-accent-light);
             transition: background var(--transition-normal), border-color var(--transition-normal), transform var(--transition-normal), color var(--transition-normal);
         }
-        
+
         .icon-badge svg {
             width: 16px;
             height: 16px;
         }
-        
+
         .footer-row:hover .icon-badge,
         .social-link:hover .icon-badge {
             background: var(--color-accent);
@@ -215,8 +219,9 @@
             color: var(--color-primary-dark);
             transform: translateY(-3px) scale(1.05);
         }
+
         /* botón copiar email: feedback visual */
-        
+
         .copy-feedback {
             font-size: var(--text-xs);
             color: var(--color-accent-light);
@@ -224,13 +229,14 @@
             transform: translateX(-4px);
             transition: opacity var(--transition-fast), transform var(--transition-fast);
         }
-        
+
         .copy-feedback.show {
             opacity: 1;
             transform: translateX(0);
         }
+
         /* --- redes sociales --- */
-        
+
         .social-link {
             display: flex;
             align-items: center;
@@ -240,12 +246,13 @@
             font-size: var(--text-sm);
             transition: color var(--transition-fast);
         }
-        
+
         .social-link:hover {
             color: var(--color-accent-light);
         }
+
         /* --- bottom bar --- */
-        
+
         .site-footer__bottom {
             display: flex;
             align-items: center;
@@ -254,8 +261,9 @@
             font-size: var(--text-xs);
             color: rgba(250, 249, 246, .5);
         }
+
         /* --- botón volver arriba --- */
-        
+
         .to-top {
             position: fixed;
             right: var(--space-5);
@@ -276,22 +284,22 @@
             transform: translateY(12px);
             transition: opacity var(--transition-normal), transform var(--transition-normal), background var(--transition-fast);
         }
-        
+
         .to-top.visible {
             opacity: 1;
             pointer-events: auto;
             transform: translateY(0);
         }
-        
+
         .to-top:hover {
             background: var(--color-accent-dark);
         }
-        
+
         .to-top svg {
             width: 18px;
             height: 18px;
         }
-        
+
         .bottom {
             display: flex;
             align-items: center;
@@ -300,12 +308,13 @@
             font-size: var(--text-xs);
             color: rgba(250, 249, 246, .5);
         }
-        
+
         @media (max-width: 780px) {
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: var(--space-6);
             }
+
             .site-footer__bottom {
                 flex-direction: column;
                 align-items: flex-start;
@@ -326,7 +335,8 @@
                 <div>
                     <h2 class="site-footer__title">ASM Painting LLC</h2>
                     <p class="site-footer__text">
-                        Professional painting and finishing services focused on quality workmanship, attention to detail, and dependable service.
+                        Professional painting and finishing services focused on quality workmanship, attention to
+                        detail, and dependable service.
                     </p>
                     <p class="site-footer__text">
                         <strong>Owner:</strong> Alonso Suarez
@@ -391,8 +401,20 @@
                             <span>WhatsApp</span>
                         </a>
 
+
+
+                    </div>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <h2 class="site-footer__title">Texas Headquarters</h2>
+                    <div class="site-footer__links">
+
                         <!-- Address -->
-                        <a class="footer-row site-footer__link" href="https://www.google.com/maps/search/?api=1&query=423+Mesa+Dr,+Del+Valle,+TX+78617" target="_blank" rel="noopener">
+                        <a class="footer-row site-footer__link"
+                            href="https://www.google.com/maps/search/?api=1&query=423+Mesa+Dr,+Del+Valle,+TX+78617"
+                            target="_blank" rel="noopener">
                             <span class="icon-badge">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round">
@@ -403,16 +425,8 @@
                             <span>423 Mesa Dr, Del Valle, TX 78617</span>
                         </a>
 
-                    </div>
-                </div>
-
-                <!-- Social -->
-                <div>
-                    <h2 class="site-footer__title">Follow Us</h2>
-                    <div class="site-footer__links">
-
                         <!-- Facebook - Generic -->
-                        <a class="social-link site-footer__link" href="#" target="_blank" rel="noopener">
+                        <!-- <a class="social-link site-footer__link" href="#" target="_blank" rel="noopener">
                             <span class="icon-badge">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path
@@ -420,10 +434,10 @@
                                 </svg>
                             </span>
                             <span>Facebook</span>
-                        </a>
+                        </a> -->
 
                         <!-- Instagram - Generic -->
-                        <a class="social-link site-footer__link" href="#" target="_blank" rel="noopener">
+                        <!-- <a class="social-link site-footer__link" href="#" target="_blank" rel="noopener">
                             <span class="icon-badge">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -432,7 +446,7 @@
                                 </svg>
                             </span>
                             <span>Instagram</span>
-                        </a>
+                        </a> -->
 
                         <!-- Google Business - Generic
                         <a class="social-link site-footer__link" href="#" target="_blank" rel="noopener">
@@ -481,7 +495,7 @@
         // Copiar email al portapapeles
         const emailBtn = document.getElementById("email-btn");
         const feedback = document.getElementById("copy-feedback");
-        emailBtn.addEventListener("click", async() => {
+        emailBtn.addEventListener("click", async () => {
             try {
                 await navigator.clipboard.writeText("info@asmpaintingllc.com");
             } catch (e) {
