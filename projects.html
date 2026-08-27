@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="View selected projects and work completed by ASM Painting LLC.">
+
+    <title>Projects | ASM Painting LLC</title>
+
+    <link rel="stylesheet" href="styles/main.css">
+
+</head>
+
+
+<body data-page="projects">
+
+    <div id="site-header"></div>
+
+
+    <main class="page">
+
+        <section class="section reveal">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div class="section-header__eyebrow">
+                        Our Work
+                    </div>
+
+                    <h1 class="section-header__title">
+                        Projects
+                    </h1>
+
+                    <p class="section-header__text">
+                        A selection of projects completed by ASM Painting LLC.
+                    </p>
+
+                </div>
+
+
+                <!-- JS will populate this automatically -->
+
+                <div id="projects-grid" class="gallery-grid" aria-live="polite">
+
+                    <p class="text-muted">
+                        Loading projects...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Lightbox -->
+
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+
+        <button id="lightbox-close" class="lightbox__close" type="button" aria-label="Close image">
+            ×
+        </button>
+
+        <img id="lightbox-image" src="" alt="">
+
+    </div>
+
+
+    <div id="site-footer"></div>
+
+
+    <script src="js/app.js" defer></script>
+
+
+    <!-- Projects -->
+
+    <script>
+        document.addEventListener(
+            "DOMContentLoaded",
+            initializeProjects
+        );
+
+
+        async function initializeProjects() {
+
+            const projectsGrid =
+                document.getElementById("projects-grid");
+
+
+            if (!projectsGrid) {
+                return;
+            }
+
+
+            const projectsApi =
+                "https://api.github.com/repos/VagoAx89/AlonsoDB/contents/projects";
+
+
+            const projectsRawBase =
+                "https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/projects/";
+
+
+            try {
+
+                const response =
+                    await fetch(projectsApi);
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        `GitHub API error: ${response.status}`
+                    );
+
+                }
+
+
+                const files =
+                    await response.json();
+
+
+                const imageFiles =
+                    files.filter(file => {
+
+                        if (file.type !== "file") {
+                            return false;
+                        }
+
+
+                        return /\.(jpg|jpeg|png|webp|gif)$/i
+                            .test(file.name);
+
+                    });
+
+
+                if (imageFiles.length === 0) {
+
+                    projectsGrid.innerHTML = `
+                        <p class="text-muted">
+                            No projects are currently available.
+                        </p>
+                    `;
+
+                    return;
+
+                }
+
+
+                projectsGrid.innerHTML = "";
+
+
+                imageFiles.forEach(file => {
+
+                    const imageUrl =
+                        projectsRawBase +
+                        encodeURIComponent(file.name)
+                            .replace(/%2F/g, "/");
+
+
+                    const item =
+                        document.createElement("button");
+
+
+                    item.type = "button";
+
+                    item.className =
+                        "gallery-item";
+
+
+                    const image =
+                        document.createElement("img");
+
+
+                    image.src =
+                        imageUrl;
+
+
+                    image.alt =
+                        prettifyProjectFilename(file.name);
+
+
+                    image.loading =
+                        "lazy";
+
+
+                    image.decoding =
+                        "async";
+
+
+                    item.appendChild(image);
+
+
+                    projectsGrid.appendChild(item);
+
+
+                    item.addEventListener(
+                        "click",
+                        () => {
+
+                            openLightbox(
+                                imageUrl,
+                                image.alt
+                            );
+
+                        }
+                    );
+
+                });
+
+
+            } catch (error) {
+
+                console.error(
+                    "Projects loading failed:",
+                    error
+                );
+
+
+                projectsGrid.innerHTML = `
+                    <p class="text-muted">
+                        We couldn't load the projects right now.
+                        Please try again later.
+                    </p>
+                `;
+
+            }
+
+        }
+
+
+        function prettifyProjectFilename(filename) {
+
+            return filename
+                .replace(/\.[^/.]+$/, "")
+                .replace(/[-_]+/g, " ")
+                .replace(/\s+/g, " ")
+                .trim();
+
+        }
+    </script>
+
+</body>
+
+</html>

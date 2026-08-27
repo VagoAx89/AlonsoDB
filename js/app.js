@@ -32,9 +32,9 @@ const CONFIG = {
 
     /* GitHub gallery */
 
-    galleryApi: "https://api.github.com/repos/VagoAx89/AlonsoDB/contents/gallery",
+    galleryApi: "https://api.github.com/repos/VagoAx89/AlonsoDB/contents/ourwork",
 
-    galleryRawBase: "https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/gallery/",
+    galleryRawBase: "https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/ourwork/",
 
     /* Contact */
 
@@ -246,6 +246,7 @@ function initializePage() {
 
         case "home":
         case "about":
+        case "projects":
         default:
             break;
     }
