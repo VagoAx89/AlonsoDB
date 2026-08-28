@@ -83,167 +83,88 @@
     <!-- Projects -->
 
     <script>
-        document.addEventListener(
-            "DOMContentLoaded",
-            initializeProjects
-        );
-
+        document.addEventListener("DOMContentLoaded", () => {
+            initializeProjects();
+            initializeLightbox(); // <-- Esta línea habilita el botón de cerrar y la tecla Escape
+        });
 
         async function initializeProjects() {
-
-            const projectsGrid =
-                document.getElementById("projects-grid");
-
+            const projectsGrid = document.getElementById("projects-grid");
 
             if (!projectsGrid) {
                 return;
             }
 
-
-            const projectsApi =
-                "https://api.github.com/repos/VagoAx89/AlonsoDB/contents/projects";
-
-
-            const projectsRawBase =
-                "https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/projects/";
-
+            const projectsApi = "https://api.github.com/repos/VagoAx89/AlonsoDB/contents/projects";
+            const projectsRawBase = "https://raw.githubusercontent.com/VagoAx89/AlonsoDB/main/projects/";
 
             try {
-
-                const response =
-                    await fetch(projectsApi);
-
+                const response = await fetch(projectsApi);
 
                 if (!response.ok) {
-
-                    throw new Error(
-                        `GitHub API error: ${response.status}`
-                    );
-
+                    throw new Error(`GitHub API error: ${response.status}`);
                 }
 
+                const files = await response.json();
 
-                const files =
-                    await response.json();
+                const imageFiles = files.filter(file => {
+                    if (file.type !== "file") {
+                        return false;
+                    }
 
-
-                const imageFiles =
-                    files.filter(file => {
-
-                        if (file.type !== "file") {
-                            return false;
-                        }
-
-
-                        return /\.(jpg|jpeg|png|webp|gif)$/i
-                            .test(file.name);
-
-                    });
-
+                    return /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name);
+                });
 
                 if (imageFiles.length === 0) {
-
                     projectsGrid.innerHTML = `
-                        <p class="text-muted">
-                            No projects are currently available.
-                        </p>
-                    `;
-
+                    <p class="text-muted">
+                        No projects are currently available.
+                    </p>
+                `;
                     return;
-
                 }
-
 
                 projectsGrid.innerHTML = "";
 
-
                 imageFiles.forEach(file => {
+                    const imageUrl = projectsRawBase + encodeURIComponent(file.name).replace(/%2F/g, "/");
 
-                    const imageUrl =
-                        projectsRawBase +
-                        encodeURIComponent(file.name)
-                            .replace(/%2F/g, "/");
-
-
-                    const item =
-                        document.createElement("button");
-
-
+                    const item = document.createElement("button");
                     item.type = "button";
+                    item.className = "gallery-item";
 
-                    item.className =
-                        "gallery-item";
-
-
-                    const image =
-                        document.createElement("img");
-
-
-                    image.src =
-                        imageUrl;
-
-
-                    image.alt =
-                        prettifyProjectFilename(file.name);
-
-
-                    image.loading =
-                        "lazy";
-
-
-                    image.decoding =
-                        "async";
-
+                    const image = document.createElement("img");
+                    image.src = imageUrl;
+                    image.alt = prettifyProjectFilename(file.name);
+                    image.loading = "lazy";
+                    image.decoding = "async";
 
                     item.appendChild(image);
-
-
                     projectsGrid.appendChild(item);
 
-
-                    item.addEventListener(
-                        "click",
-                        () => {
-
-                            openLightbox(
-                                imageUrl,
-                                image.alt
-                            );
-
-                        }
-                    );
-
+                    item.addEventListener("click", () => {
+                        openLightbox(imageUrl, image.alt);
+                    });
                 });
 
-
             } catch (error) {
-
-                console.error(
-                    "Projects loading failed:",
-                    error
-                );
-
+                console.error("Projects loading failed:", error);
 
                 projectsGrid.innerHTML = `
-                    <p class="text-muted">
-                        We couldn't load the projects right now.
-                        Please try again later.
-                    </p>
-                `;
-
+                <p class="text-muted">
+                    We couldn't load the projects right now.
+                    Please try again later.
+                </p>
+            `;
             }
-
         }
 
-
         function prettifyProjectFilename(filename) {
-
             return filename
                 .replace(/\.[^/.]+$/, "")
                 .replace(/[-_]+/g, " ")
                 .replace(/\s+/g, " ")
                 .trim();
-
         }
     </script>
 
