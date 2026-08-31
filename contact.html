@@ -55,7 +55,8 @@
                         </h2>
 
                         <p class="text-light">
-                            Whether you're planning a small room refresh or a larger painting project, we'd be happy to hear from you.
+                            Whether you're planning a small room refresh or a larger painting project, we'd be happy to
+                            hear from you.
                         </p>
 
 
@@ -98,39 +99,53 @@
 
                     <!-- Contact form -->
 
-                    <div class="card">
+                    <form id="contact-form" action="https://formspree.io/f/mzebeplg" method="POST">
 
-                        <form id="contact-form">
+                        <div class="form-group">
+                            <label class="form-label" for="name">
+                                Name
+                            </label>
 
-                            <div class="form-group">
-                                <label class="form-label" for="name">Name</label>
-                                <input class="form-input" id="name" name="name" type="text" autocomplete="name" required>
-                            </div>
+                            <input class="form-input" id="name" name="name" type="text" autocomplete="name" required>
+                        </div>
 
-                            <div class="form-group">
-                                <label class="form-label" for="email">Email</label>
-                                <input class="form-input" id="email" name="email" type="email" autocomplete="email" required>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="form-label" for="phone">Phone</label>
-                                <input class="form-input" id="phone" name="phone" type="tel" autocomplete="tel">
-                            </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">
+                                Email
+                            </label>
 
-                            <div class="form-group">
-                                <label class="form-label" for="message">Tell us about your project</label>
-                                <textarea class="form-input" id="message" name="message" required></textarea>
-                            </div>
+                            <input class="form-input" id="email" name="email" type="email" autocomplete="email"
+                                required>
+                        </div>
 
-                            <button id="sendBtn" type="submit" class="btn btn--primary">
-                                Send Request
-                            </button>
 
-                            <p id="contact-status" class="text-muted mt-4" aria-live="polite"></p>
+                        <div class="form-group">
+                            <label class="form-label" for="phone">
+                                Phone
+                            </label>
 
-                        </form>
+                            <input class="form-input" id="phone" name="phone" type="tel" autocomplete="tel">
+                        </div>
 
-                    </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">
+                                Tell us about your project
+                            </label>
+
+                            <textarea class="form-input" id="message" name="message" required></textarea>
+                        </div>
+
+
+                        <button id="sendBtn" type="submit" class="btn btn--primary">
+                            Send Request
+                        </button>
+
+
+                        <p id="contact-status" class="text-muted mt-4" aria-live="polite"></p>
+
+                    </form>
 
                 </div>
 

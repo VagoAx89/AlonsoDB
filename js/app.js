@@ -38,7 +38,7 @@ const CONFIG = {
 
     /* Contact */
 
-    contactEmail: "alonso@asmpaintingllc.com"
+    contactEmail: "alonso@asmpainting.com"
 };
 
 
@@ -576,60 +576,108 @@ function initializeContactForm() {
         return;
     }
 
-
     form.addEventListener(
         "submit",
-        event => {
+        async event => {
 
             event.preventDefault();
-
 
             const formData =
                 new FormData(form);
 
+            const button =
+                document.getElementById("sendBtn");
 
-            const name =
-                formData.get("name");
-
-            const email =
-                formData.get("email");
-
-            const phone =
-                formData.get("phone");
-
-            const message =
-                formData.get("message");
+            const status =
+                document.getElementById("contact-status");
 
 
-            const subject =
-                encodeURIComponent(
-                    "New Project Inquiry - ASM Painting LLC"
-                );
+            button.disabled = true;
 
-
-            const body =
-                encodeURIComponent(
-                    `Name: ${name}\n` +
-                    `Email: ${email}\n` +
-                    `Phone: ${phone || "Not provided"}\n\n` +
-                    `Project details:\n${message}`
-                );
-
-
-            const mailto =
-                `mailto:${CONFIG.contactEmail}` +
-                `?subject=${subject}` +
-                `&body=${body}`;
-
-
-            window.location.href =
-                mailto;
+            button.textContent =
+                "Sending...";
 
 
             if (status) {
 
                 status.textContent =
-                    "Opening your email application...";
+                    "Sending your request...";
+
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        form.action, {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    }
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Form submission failed."
+                    );
+
+                }
+
+
+                form.reset();
+
+
+                button.disabled = false;
+
+                button.textContent =
+                    "Send Request";
+
+
+                if (status) {
+
+                    status.textContent =
+                        "Your request has been sent successfully!";
+
+                }
+
+
+                // Mostrar modal
+                const modal =
+                    document.getElementById(
+                        "contact-success-modal"
+                    );
+
+                if (modal) {
+
+                    modal.classList.add(
+                        "is-visible"
+                    );
+
+                }
+
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                button.disabled = false;
+
+                button.textContent =
+                    "Send Request";
+
+
+                if (status) {
+
+                    status.textContent =
+                        "Something went wrong. Please try again.";
+
+                }
 
             }
 
